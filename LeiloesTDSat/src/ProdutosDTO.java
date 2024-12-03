@@ -20,6 +20,20 @@ public class ProdutosDTO {
         return status;
     }
 
-    
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setValor(Integer valor) {
+        this.valor = valor;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
 }
