@@ -11,7 +11,7 @@ public class conectaDAO {
         
         try {
             // Adicionando allowPublicKeyRetrieval=true e useSSL=false
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11?user=root&password=suasenha$&useSSL=false&allowPublicKeyRetrieval=true");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11?user=root&password=Fcd127442$&useSSL=false&allowPublicKeyRetrieval=true");
             
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro ConectaDAO: " + erro.getMessage());
