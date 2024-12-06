@@ -19,7 +19,7 @@ public class vendasVIEW extends javax.swing.JFrame {
      */
     public vendasVIEW() {
         initComponents();
-        
+        listarProdutosVendidos(); // Carregar os produtos vendidos ao abrir a tela
     }
 
     /**
@@ -139,7 +139,27 @@ public class vendasVIEW extends javax.swing.JFrame {
         });
     }
     
-    
+    public void listarProdutosVendidos() {
+    try {
+        ProdutosDAO produtosDAO = new ProdutosDAO(); // Instância do DAO
+        ArrayList<ProdutosDTO> listagem = produtosDAO.listarProdutosVendidos(); // Busca produtos vendidos
+
+        DefaultTableModel model = (DefaultTableModel) tabelaProdutosVendidos.getModel();
+        model.setNumRows(0); // Limpa a tabela antes de preenchê-la
+
+        // Adiciona os produtos vendidos na tabela
+        for (ProdutosDTO produto : listagem) {
+            model.addRow(new Object[]{
+                produto.getId(),
+                produto.getNome(),
+                produto.getValor(),
+                produto.getStatus()
+            });
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Erro ao listar produtos vendidos: " + e.getMessage());
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVoltar;
